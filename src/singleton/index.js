@@ -4,22 +4,59 @@
 
 // Singletonパターンが適用されていない場合
 
-let counter = 0;
+let notSingletonCounter = 0;
 
-class Counter {
+class NotSingletonCounter {
   getInstance() {
     return this;
   }
 
   getCounter() {
-    return counter;
+    return notSingletonCounter;
   }
 
   increment() {
-    return ++counter;
+    return ++notSingletonCounter;
   }
 
   decrement() {
-    return --counter;
+    return --notSingletonCounter;
   }
 }
+
+const counter1 = new NotSingletonCounter();
+const counter2 = new NotSingletonCounter();
+
+console.log("NotSingletonCounter result", counter1 === counter2); // false
+
+// Singletonパターンが適用された場合
+let instance;
+let singletonCounter = 0;
+class SingletonCounter {
+  constructor() {
+    if (instance) {
+      throw new Error("You can only create one instance !");
+    }
+    instance = this;
+  }
+
+  getInstance() {
+    return this;
+  }
+
+  getCounter() {
+    return singletonCounter;
+  }
+
+  increment() {
+    return ++singletonCounter;
+  }
+
+  decrement() {
+    return --singletonCounter;
+  }
+}
+
+const counter3 = new SingletonCounter();
+const counter4 = new SingletonCounter();
+// エラーが発生する
