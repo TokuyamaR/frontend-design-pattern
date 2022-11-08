@@ -57,6 +57,9 @@ class SingletonCounter {
   }
 }
 
-const counter3 = new SingletonCounter();
-const counter4 = new SingletonCounter();
-// エラーが発生する
+// エラーが発生することを確認
+// const counter3 = new SingletonCounter();
+// const counter4 = new SingletonCounter();
+
+// 下記の実装はエラーが発生しない
+const counter5 = Object.freeze(new SingletonCounter());
