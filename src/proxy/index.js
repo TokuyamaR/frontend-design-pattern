@@ -10,4 +10,16 @@ const person = {
   country: "Japan",
 };
 
-const personProxy = new Proxy(person, {});
+const personProxy = new Proxy(person, {
+  get: (obj, prop) => {
+    console.log(`The value of ${prop} is ${obj[prop]}`);
+  },
+  set: (obj, prop, value) => {
+    console.log(`Change ${prop} from  ${obj[prop]} to ${value}`);
+    obj[prop] = value;
+    return true;
+  },
+});
+
+personProxy.age;
+personProxy.name = "Alex";
