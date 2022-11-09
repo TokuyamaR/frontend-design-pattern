@@ -9,3 +9,5 @@ const person = {
   sex: "male",
   country: "Japan",
 };
+
+const personProxy = new Proxy(person, {});
