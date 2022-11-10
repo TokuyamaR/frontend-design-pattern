@@ -9,17 +9,40 @@ const DataContext = React.createContext();
 
 const App = () => {
   const data = {
-    id: 1,
-    name: "Sushi",
-    price: 500,
+    // 適当なデータが入る
   };
 
   return (
     <div>
       <DataContext.provider value={data}>
         <Sidebar />
-        <MainContents />
+        <Main />
       </DataContext.provider>
     </div>
   );
+};
+
+const Sidebar = () => <List />;
+const Main = () => (
+  <div>
+    <Header />
+    <Contents />
+  </div>
+);
+
+const Contents = () => <Text />;
+
+const List = () => {
+  const { data } = useContext(DataContext);
+  return <span>{data.listItem}</span>;
+};
+
+const Header = () => {
+  const { data } = useContext(DataContext);
+  return <h1>{data.title}</h1>;
+};
+
+const Text = () => {
+  const { data } = useContext(DataContext);
+  return <div>{data.text}</div>;
 };
