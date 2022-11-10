@@ -23,3 +23,18 @@ const personProxy = new Proxy(person, {
 
 personProxy.age;
 personProxy.name = "Alex";
+
+// Reflectオブジェクトを利用した場合
+// const personProxy = new Proxy(person, {
+//   get: (obj, prop) => {
+//     console.log(`The value of ${prop} is ${Reflect.get(obj, prop)}`);
+//   },
+//   set: (obj, prop, value) => {
+//     console.log(`Change ${prop} from  ${obj[prop]} to ${value}`);
+//     Reflect.set(obj, prop, value);
+//     return true;
+//   },
+// });
+
+// personProxy.country;
+// personProxy.name = "Mary";
