@@ -1,5 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from ".";
 
 export default function Toggle() {
-  return <div>Toggle component</div>;
+  const theme = useContext(ThemeContext);
+  return (
+    <label>
+      <input type="checkbox" onclick={theme.toggleTheme} />
+      <span className="slider round" />
+    </label>
+  );
 }
