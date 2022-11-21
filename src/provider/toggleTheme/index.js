@@ -5,6 +5,7 @@
 import React from "react";
 import "./style.css";
 import List from "./List";
+import Toggle from "./Toggle";
 
 export const ThemeContext = createContext();
 
@@ -19,7 +20,7 @@ const themes = {
   },
 };
 
-export default function App() {
+export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState("dark");
 
   const toggleTheme = () => {
@@ -30,11 +31,21 @@ export default function App() {
     theme: themes[theme],
     toggleTheme,
   };
+
+  return (
+    <ThemeContext.provider value={providerValue}>
+      {children}
+    </ThemeContext.provider>
+  );
+};
+
+export default function App() {
   return (
     <div className={`App theme-${theme}`}>
-      <ThemeContext.provider value={providerValue}>
+      <ThemeProvider>
+        <Toggle />
         <List />
-      </ThemeContext.provider>
+      </ThemeProvider>
     </div>
   );
 }
