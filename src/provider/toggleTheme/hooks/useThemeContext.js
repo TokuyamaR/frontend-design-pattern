@@ -1,4 +1,4 @@
-import ThemeContext from "../";
+import ThemeContext from "..";
 
 export default function useThemeContext() {
   const theme = useContext(ThemeContext);
