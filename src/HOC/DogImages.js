@@ -1,8 +1,14 @@
 import React from "react";
 import useDogImages from "./useDogImages";
+import withLoader from "./withLoader";
 
-export default function DogImages() {
-  const dogs = useDogImages();
-
-  return dogs.map((dog, i) => <img src={dog} key={i} alt="Dog" />);
+function DogImages(props) {
+  return props.data.message.map((dog, i) => (
+    <img src={dog} key={i} alt="Dog" />
+  ));
 }
+
+export default withLoader(
+  DogImages,
+  "https://dog.ceo/api/breed/labrador/images/random/6"
+);
