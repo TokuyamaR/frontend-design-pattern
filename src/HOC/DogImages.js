@@ -1,5 +1,4 @@
 import React from "react";
-import useDogImages from "./useDogImages";
 import withLoader from "./withLoader";
 
 function DogImages(props) {
