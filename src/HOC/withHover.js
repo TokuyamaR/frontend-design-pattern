@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-export default function withLoader(Element, url) {
+export default function withHover(Element, url) {
   return (props) => {
     const [isHover, setIsHover] = useState(false);
 
