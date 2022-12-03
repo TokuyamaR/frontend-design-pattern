@@ -3,22 +3,11 @@
 関数を利用することで、アプリケーション内の複数のコンポーネントでステートフルなロジックを再利用できる
 */
 
-import React, { useState, useEffect } from "react";
-import { useKeyPress } from "./useKeyPress";
+import React from "react";
+import ReactDOM from "react-dom";
+import "./style.css";
 
-export default function Input() {
-  const [input, setInput] = useState("");
-  const pressQ = useKeyPress("q");
+import Input from "./Input.js";
 
-  useEffect(() => {
-    console.log("User pressed Q");
-  }, [pressQ]);
-
-  return (
-    <input
-      onChange={(e) => setInput(e.target.value)}
-      value={input}
-      placeholder="input something..."
-    />
-  );
-}
+const rootElement = document.getElementById("root");
+ReactDOM.render(<Input />, rootElement);
