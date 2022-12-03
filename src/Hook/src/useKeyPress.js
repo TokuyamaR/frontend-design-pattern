@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+
 export default function useKeyPress(targetKey) {
   const [isKeyPressed, setIsKeyPressed] = useState(false);
 
