@@ -6,13 +6,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import ImagesList from "./Images";
+import ImageList from "./Images";
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <React.StrictMode>
     <div className="App">
-      <ImagesList />
+      <ImageList />
     </div>
   </React.StrictMode>,
   rootElement
